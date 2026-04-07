@@ -27,3 +27,8 @@ class SimpleEnv:
         done = self.step_count >= 10
 
         return {"balance": self.balance}, reward, done
+def get_state(self):
+    return {
+        "balance": self.balance,
+        "step_count": self.step_count
+    }

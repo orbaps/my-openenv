@@ -1,0 +1,15 @@
+name: meta_openenv_rakshak
+version: "1.0.0"
+description: Simple financial RL environment
+
+entrypoint:
+  module: server.app
+  app: app
+
+tasks:
+  - id: easy
+    description: Maintain balance above 900
+  - id: medium
+    description: Increase balance above 1100
+  - id: hard
+    description: Maximize balance over time

@@ -4,6 +4,7 @@ from server.environment import SimpleEnv
 app = FastAPI()
 env = SimpleEnv()
 
+
 @app.get("/health")
 def health():
     return {"status": "healthy"}
@@ -34,3 +35,9 @@ def step(action: dict):
         "reward": reward,
         "done": done
     }
+
+
+# 🆕 ADD THIS ONLY
+@app.get("/state")
+def state():
+    return env.get_state()
