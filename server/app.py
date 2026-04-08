@@ -10,7 +10,6 @@ def health():
     return {"status": "healthy"}
 
 
-# POST reset (main one)
 @app.post("/reset")
 def reset():
     obs = env.reset()
@@ -21,7 +20,6 @@ def reset():
     }
 
 
-# GET reset (for browser testing)
 @app.get("/reset")
 def reset_get():
     return reset()
@@ -37,7 +35,15 @@ def step(action: dict):
     }
 
 
-# 🆕 ADD THIS ONLY
 @app.get("/state")
 def state():
     return env.get_state()
+
+
+def main():
+    import uvicorn
+    uvicorn.run("server.app:app", host="0.0.0.0", port=7860)
+
+
+if __name__ == "__main__":
+    main()
